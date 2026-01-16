@@ -112,7 +112,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[linear-gradient(90.14deg,_#003A5D_22.84%,_#99B81B_89.63%)] flex justify-between p-3 mt-auto">
+        <div className="bg-[linear-gradient(90.14deg,#003A5D_22.84%,#99B81B_89.63%)] flex justify-between p-3 mt-auto">
           <p className="text-white capitalize">terms and condition</p>
           <p className="text-white ">
             © {new Date().getFullYear()} All Rights Reserved

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
-import batmentonGraphics from "@/assets/batmenton-graphics.png";
-import CtaBack from "@/assets/CtaBack.png";
+import batmentonGraphics from "@/assets/batmenton-graphics.webp";
+import CtaBack from "@/assets/CtaBack.webp";
 
 const CTA = () => {
   return (
