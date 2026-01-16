@@ -5,6 +5,7 @@ import Testimonials from "@/components/Testimonials/Testimonials";
 import KeyFeatures from "@/components/Features/KeyFeatures";
 import Team from "@/components/OurTeam/Team";
 import AboutPage from "@/components/About/AboutPage";
+import Facilities from "@/components/Facilities/Facilities";
 export default function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function Home() {
       <KeyFeatures />
       <Launching />
       <Team />
+      <Facilities />
       <CTA />
     </>
   );

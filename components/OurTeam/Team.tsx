@@ -40,7 +40,7 @@ const Programs = () => {
         </div>
         <div className="flex flex-col md:flex-row w-full gap-4">
           {Team.map((member, index) => (
-            <div className="flex w-full flex-col gap-3">
+            <div key={index} className="flex w-full flex-col gap-3">
               <Image
                 src={member.image}
                 alt={member.name}
