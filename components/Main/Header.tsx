@@ -21,8 +21,9 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-white sticky top-0 z-5000 border-b">
-      <div className="px-4 py-1 flex justify-between items-center">
+    <header className="sticky top-0 z-9999 border-b bg-white/90 backdrop-blur">
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image src={SSAFooter} alt="SSAHeader" width={90} height={30} />
         </Link>

@@ -1,5 +1,4 @@
 import { MoveRight } from "lucide-react";
-import { text } from "stream/consumers";
 const FeaturesData = [
   { text: "First venue in the world" },
 

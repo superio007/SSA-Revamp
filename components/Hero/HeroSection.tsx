@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import HeroBack from "@/assets/HeroBack.webp";
 import { MoveDown, ChevronsLeft, MapPin, X } from "lucide-react";
 
@@ -9,33 +9,32 @@ type PanelType = "weather" | "matches" | "score" | null;
 const HeroSection = () => {
   const [activePanel, setActivePanel] = useState<PanelType>(null);
 
-  const togglePanel = (panel: Exclude<PanelType, null>) => {
+  const togglePanel = useCallback((panel: Exclude<PanelType, null>) => {
     setActivePanel((prev) => (prev === panel ? null : panel));
-  };
+  }, []);
 
-  const closePanel = () => setActivePanel(null);
+  const closePanel = useCallback(() => setActivePanel(null), []);
 
   return (
     <div
-      className="w-full h-screen bg-cover bg-center text-center flex flex-col gap-3 justify-center items-center relative"
+      className="w-full min-h-svh bg-cover bg-center text-center flex flex-col gap-3 justify-center items-center relative"
       style={{ backgroundImage: `url(${HeroBack.src})` }}
     >
       {/* Overlay (click outside closes panel) */}
       {activePanel && (
-        <div onClick={closePanel} className="absolute inset-0 z-20" />
+        <button
+          aria-label="Close panel overlay"
+          onClick={closePanel}
+          className="absolute inset-0 z-20 cursor-default"
+          type="button"
+        />
       )}
 
       <p className="text-white text-xl relative z-10">SSA HUNTER VALLEY</p>
 
-      <h1 className="font-light uppercase hidden md:block text-white text-3xl md:text-5xl relative z-10">
-        Grow Your Game with the <br />
-        <span className="font-bold border-b-2 pb-2 border-white">
-          Professionals
-        </span>
-      </h1>
-
-      <h1 className="font-light uppercase md:hidden text-white text-3xl relative z-10">
-        Grow Your Game with the {""}
+      {/* Single H1 (SEO correct) */}
+      <h1 className="font-light uppercase text-white text-3xl md:text-5xl relative z-10">
+        Grow Your Game with the <br className="hidden md:block" />
         <span className="font-bold border-b-2 pb-2 border-white">
           Professionals
         </span>
@@ -49,9 +48,13 @@ const HeroSection = () => {
         <span>deliver</span>
       </div>
 
-      <div className="border border-[#99B81B] text-white text-center px-5 py-2 capitalize rounded-full cursor-pointer mt-3 relative z-10">
+      {/* Button instead of div (same design) */}
+      <button
+        type="button"
+        className="border border-[#99B81B] text-white text-center px-5 py-2 capitalize rounded-full cursor-pointer mt-3 relative z-10"
+      >
         register now
-      </div>
+      </button>
 
       <div className="absolute bottom-16 z-10">
         <MoveDown className="animate-bounce" color="#99B81B" size={36} />
@@ -60,6 +63,7 @@ const HeroSection = () => {
       {/* Right Menu */}
       <div className="absolute right-0 bottom-24 flex flex-col gap-3 pr-4 text-left z-30">
         <button
+          type="button"
           onClick={() => togglePanel("weather")}
           className="flex gap-2 items-center"
         >
@@ -70,6 +74,7 @@ const HeroSection = () => {
         </button>
 
         <button
+          type="button"
           onClick={() => togglePanel("matches")}
           className="flex gap-2 items-center"
         >
@@ -80,6 +85,7 @@ const HeroSection = () => {
         </button>
 
         <button
+          type="button"
           onClick={() => togglePanel("score")}
           className="flex gap-2 items-center"
         >
@@ -92,10 +98,15 @@ const HeroSection = () => {
 
       {/* Panel Box */}
       {activePanel && (
-        <div className="absolute right-0 bottom-40 w-[320px] backdrop-blur-sm p-5 text-left z-30">
+        <div
+          className="absolute right-0 bottom-40 w-[320px] backdrop-blur-sm p-5 text-left z-30"
+          onClick={(e) => e.stopPropagation()}
+        >
           <button
+            type="button"
             onClick={closePanel}
             className="absolute top-2 right-2 text-white"
+            aria-label="Close panel"
           >
             <X size={18} />
           </button>
@@ -129,11 +140,11 @@ const HeroSection = () => {
               <div className="mt-3 space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span>Team A vs Team B</span>
-                  <span className="text-[#99B81B]">Live</span>
+                  <span className="text-white font-semibold">Live</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Team C vs Team D</span>
-                  <span className="text-[#99B81B]">Live</span>
+                  <span className="text-white font-semibold">Live</span>
                 </div>
               </div>
             </div>

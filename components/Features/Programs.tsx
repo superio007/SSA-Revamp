@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Back1 from "@/assets/Back1.webp";
 import Back2 from "@/assets/Back2.webp";
 import Back3 from "@/assets/Back3.webp";

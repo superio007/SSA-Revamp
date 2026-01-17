@@ -1,5 +1,4 @@
 import Image from "next/image";
-import BackgroundVideo from "next-video/background-video";
 import Trophy from "@/assets/Trophy.webp";
 import PosterImage1 from "@/assets/PosterImage1.webp";
 import PosterImage2 from "@/assets/PosterImage2.webp";
@@ -114,7 +113,12 @@ const Facilities = () => {
         </div>
         <div
           className="container mx-auto flex absolute justify-start gap-12 items-center"
-          style={{ paddingLeft: "12rem", bottom: "-20rem", right: "17rem", width:"max-content" }}
+          style={{
+            paddingLeft: "12rem",
+            bottom: "-20rem",
+            right: "17rem",
+            width: "max-content",
+          }}
         >
           {Facilitie2.map((facility, index) => (
             <div key={index} className="relative">

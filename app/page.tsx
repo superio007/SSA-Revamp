@@ -9,14 +9,16 @@ import Facilities from "@/components/Facilities/Facilities";
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <AboutPage />
-      <Testimonials />
-      <KeyFeatures />
-      <Launching />
-      <Team />
-      <Facilities />
-      <CTA />
+      <HeroSection /> {/* must contain h1 */}
+      <main>
+        <AboutPage />
+        <Testimonials />
+        <KeyFeatures />
+        <Launching />
+        <Team />
+        <Facilities />
+        <CTA />
+      </main>
     </>
   );
 }

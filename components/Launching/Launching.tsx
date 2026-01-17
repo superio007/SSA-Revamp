@@ -17,17 +17,17 @@ const Launching = () => {
     <section className="w-full">
       <div className="flex flex-col md:flex-row w-full overflow-hidden">
         {/* Left Gradient Panel */}
-        <div className="w-full md:w-[45%] flex flex-col gap-5 p-6 md:p-14 bg-[linear-gradient(148.19deg,#003A5D_3.49%,#99B81B_113.07%)]">
+        <div className="w-full md:w-[45%] flex flex-col gap-5 px-6 py-10 md:px-14 md:py-14 bg-[linear-gradient(148.19deg,#003A5D_3.49%,#99B81B_113.07%)]">
           <span className="text-sm md:text-lg font-light text-white uppercase">
             Launching
           </span>
 
-          <h2 className="text-4xl hidden md:block text-white font-bold leading-[115%]">
-            Signature Slam Academy <br /> Hunter Valley
+          {/* Single H2 (SEO + clean) */}
+          <h2 className="text-3xl md:text-4xl text-white font-bold leading-[115%]">
+            Signature Slam Academy <br className="hidden md:block" />
+            Hunter Valley
           </h2>
-          <h2 className="text-3xl md:hidden text-white font-bold leading-[115%]">
-            Signature Slam Academy Hunter Valley
-          </h2>
+
           <h3 className="text-xl md:text-2xl font-medium leading-[100%] text-white">
             SSA Connectivity
           </h3>
@@ -35,22 +35,28 @@ const Launching = () => {
           {/* List */}
           <div className="flex flex-col gap-6 mt-2">
             {Highlights.map((highlight, index) => (
-              <div key={index} className="flex items-center gap-3">
+              <div key={index} className="flex items-start gap-3">
                 {/* Icon */}
-                <Image src={ion_golf} alt="icon" width={20} height={20} />
+                <Image
+                  src={ion_golf}
+                  alt="golf icon"
+                  width={20}
+                  height={20}
+                  className="mt-0.5 shrink-0"
+                />
 
                 {/* Name + dash + distance */}
                 <div className="flex items-center gap-3 flex-1 min-w-0">
-                  {/* Name (truncate on mobile) */}
+                  {/* Name */}
                   <p className="text-white font-semibold text-[16px] capitalize truncate">
                     {highlight.text}
                   </p>
 
-                  {/* Dashed line (hide on very small screens) */}
+                  {/* Dashed line */}
                   <div className="hidden sm:block flex-1 border-b border-dashed border-white/50" />
 
                   {/* Distance */}
-                  <p className="text-white text-[14px] font-medium whitespace-nowrap">
+                  <p className="text-white text-[14px] font-medium whitespace-nowrap shrink-0">
                     {highlight.distance}
                   </p>
                 </div>
@@ -60,13 +66,13 @@ const Launching = () => {
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full md:w-[55%] min-h-65 md:min-h-130">
+        <div className="relative w-full md:w-[55%] min-h-80 md:min-h-130">
           <Image
             src={LaunchingSideImage}
             alt="Launching Side"
             fill
-            priority
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 55vw"
           />
         </div>
       </div>

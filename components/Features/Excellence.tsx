@@ -24,11 +24,13 @@ const Excellence = () => {
           <Image
             src={BadmentonPlay}
             alt="Badmenton Play"
+            loading="lazy"
             className=" rounded-lg object-cover"
           />
           <Image
             src={BadmentonPitch}
             alt="Badmenton Pitch"
+            loading="lazy"
             className=" rounded-lg object-cover"
           />
         </div>
